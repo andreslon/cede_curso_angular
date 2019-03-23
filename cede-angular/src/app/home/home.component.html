@@ -1,0 +1,52 @@
+<mat-card>
+    <h1>Tipos</h1>
+    <p> <b>String:</b>{{textString}}</p>
+    <p> <b>Number:</b>{{textNumber}}</p>
+    <p> <b>Boolean:</b>{{textBoolean}}</p>
+    <p> <b>String[]:</b>{{textArray}}</p>
+</mat-card>
+
+
+<mat-card>
+    <h1>Reconocimiento</h1>
+    <p> <b>substr:</b>{{textString.substr(0,6)}}</p>
+    <p *ngIf="textBoolean">
+        HOLA A TODOS EN CEDESISTEMAS
+    </p>
+</mat-card>
+<mat-card>
+    <h1>ngFor y Listas</h1>
+    <mat-list>
+        <mat-list-item *ngFor="let person of people">
+            <mat-icon matListIcon>folder</mat-icon>
+            <h2 matLine> {{person.Name}} </h2>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
+<mat-card>
+    <h1>Binding y enlazados con ngModel</h1>
+    {{textString}}
+    <p>
+        <mat-form-field>
+            <input matInput placeholder="Name" [(ngModel)]="textString">
+        </mat-form-field>
+    </p>
+    <p>
+        <b>One way:</b>
+        <input [ngModel]="textString">
+    </p>
+    <p>
+        <b>Two way:</b>
+        <input [(ngModel)]="textString">
+    </p>
+    <p>
+        <b>ngModelChange:</b>
+        <input [ngModel]="textString" (ngModelChange)="changeValue($event)">
+    </p>
+</mat-card>
+
+<mat-card>
+    <h1>Eventos</h1>
+
+    <button mat-raised-button color="accent" (click)="showAlert()">Show textString</button>
+</mat-card>
