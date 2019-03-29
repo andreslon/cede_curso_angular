@@ -1,26 +1,18 @@
+<div class="sec-container" [class.sec-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="sec-toolbar">
+      <button mat-icon-button (click)="snav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+      <h1 class="sec-app-name toolbar-title">CEDESISTEMAS</h1>
+  </mat-toolbar>
 
+  <mat-sidenav-container class="sec-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [opened]="true">
+          <app-nav-menu></app-nav-menu>
+      </mat-sidenav>
 
-
-<mat-drawer-container class="app-container">
-  <mat-drawer mode="side" opened>
-    
-    <app-nav-menu></app-nav-menu>
-
-  </mat-drawer>
-  <mat-drawer-content>
-    
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>
-        <span>Custom Toolbar</span>
-      </mat-toolbar-row>
-    </mat-toolbar>
-
-
-    <router-outlet></router-outlet>
-
-  </mat-drawer-content>
-</mat-drawer-container>
-
-
-
-
+      <mat-sidenav-content>
+          <router-outlet></router-outlet>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
