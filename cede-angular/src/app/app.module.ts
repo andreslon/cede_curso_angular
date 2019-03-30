@@ -8,8 +8,10 @@ import { AppComponent } from './app-component/app.component';
 import { MaterialModule } from './material.module'; 
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { UserModule} from './users/user.module';
+import { UsersModule } from './users/users.module';
 
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { UserModule} from './users/user.module';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     //AppRoutingModule, 
     MaterialModule,
     RouterModule.forRoot([
@@ -32,7 +35,7 @@ import { UserModule} from './users/user.module';
         component: HomeComponent
       }
     ]),
-    UserModule
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
