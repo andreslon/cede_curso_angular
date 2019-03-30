@@ -11,9 +11,9 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['userId', 'name', 'lastName', 'nit', 'birthDay', 'email'];
+  displayedColumns: string[] = ['userId', 'name', 'lastName', 'nit', 'birthDay', 'email', 'delete'];
   dataSource: MatTableDataSource<UserModel>;
-
+  isLoading:boolean=true;
   constructor(private usersService: UsersService) {
 
   }
@@ -30,10 +30,17 @@ export class ListComponent implements OnInit, OnDestroy {
   load() {
     this.usersService.getAll().subscribe(
       (data: any) => {
+        this.isLoading=false;
         this.dataSource = new MatTableDataSource(data);
       },
       (error: any) => {
-
+        this.isLoading=false;
       });
+  }
+
+  delete(element){
+    this.usersService.delete(element.userId).subscribe((data:any)=>{
+        this.load();
+    });
   }
 }

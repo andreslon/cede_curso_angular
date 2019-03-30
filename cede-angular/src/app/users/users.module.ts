@@ -5,7 +5,7 @@ import { AddEditComponent } from './add-edit/add-edit.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES} from './users.routes'; 
 import { UsersService} from './users.service'; 
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule} from './../material.module'; 
 
 @NgModule({
@@ -13,7 +13,9 @@ import { MaterialModule} from './../material.module';
   imports: [
     CommonModule,
     RouterModule.forChild(ROUTES),
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers:[UsersService]
 })

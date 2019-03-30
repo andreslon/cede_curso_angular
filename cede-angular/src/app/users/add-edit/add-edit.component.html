@@ -1,3 +1,50 @@
-<p>
-  add-edit works!
-</p>
+<mat-toolbar>
+  <button mat-icon-button class="toolbar-icon" (click)="back()">
+    <mat-icon aria-label="back">arrow_back</mat-icon>
+  </button>
+  <h1 class="toolbar-title">Add user</h1>
+</mat-toolbar>
+
+<form class="form-container" autocomplete="off" #form="ngForm" (ngSubmit)="save(form)">
+
+  <mat-form-field hintLabel="Max 100 characters">
+    <input matInput #input1 placeholder="Name" [formControl]="name" required>
+    <mat-hint align="end">{{input1.value?.length || 0}}/100</mat-hint>
+    <mat-error *ngIf="name.invalid">{{this.name.hasError('required') ? 'You must enter a value' : ''}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field hintLabel="Max 100 characters">
+    <input matInput #input2 placeholder="LastName" [formControl]="lastName" required>
+    <mat-hint align="end">{{input2.value?.length || 0}}/100</mat-hint>
+    <mat-error *ngIf="lastName.invalid">{{this.lastName.hasError('required') ? 'You must enter a value' : ''}}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field hintLabel="Max 100 characters">
+    <input matInput #input3 placeholder="Nit" [formControl]="nit">
+    <mat-hint align="end">{{input3.value?.length || 0}}/100</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose your birthdate" [formControl]="birthDay">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+
+  <mat-form-field  >
+    <input matInput placeholder="Email" [formControl]="email">
+    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="email.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+
+  <div>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </div>
+</form>
