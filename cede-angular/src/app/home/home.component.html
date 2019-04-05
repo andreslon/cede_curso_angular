@@ -1,4 +1,14 @@
 <mat-card>
+    <h1>Pipes</h1>
+    <p> <b>lowercase:</b>{{textString | lowercase}}</p> 
+    <p> <b>uppercase:</b>{{textString | uppercase}}</p> 
+    <p> <b>json:</b>{{textString | json}}</p> 
+    <p> <b>percent:</b>{{textNumber | percent}}</p>
+
+    <p> <b>custom pipe:</b>{{textString | welcome}}</p>
+</mat-card>
+
+<mat-card>
     <h1>Tipos</h1>
     <p> <b>String:</b>{{textString}}</p>
     <p> <b>Number:</b>{{textNumber}}</p>

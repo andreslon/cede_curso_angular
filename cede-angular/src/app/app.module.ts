@@ -12,12 +12,15 @@ import { UsersModule } from './users/users.module';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent
+    HomeComponent 
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
         component: HomeComponent
       }
     ]),
-    UsersModule
+    UsersModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
