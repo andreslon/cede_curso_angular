@@ -2,5 +2,8 @@
     "common":{
         "title": "Welcome to Cedesistemas course",
         "welcome": "Welcome {{name}}!"
+    },
+    "users":{
+        "confirmMessage":"Are you sure you want to delete this item?"
     }
 }

@@ -2,5 +2,8 @@
     "common":{
         "title": "Bienvenido al curso de Cedesistemas",
         "welcome": "Bienvenido {{name}}!"
-    } 
+    } ,
+    "users":{
+        "confirmMessage":"¿Estás seguro de eliminar este elemento?"
+    }
 }
