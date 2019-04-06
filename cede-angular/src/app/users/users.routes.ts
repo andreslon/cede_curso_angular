@@ -10,5 +10,9 @@ export const ROUTES: Routes = [
   {
     path:'users/add',
     component: AddEditComponent
+  },
+  {
+    path:'users/add/:id',
+    component: AddEditComponent
   }
 ];

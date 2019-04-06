@@ -5,6 +5,7 @@ import { UserModel } from '../users.model';
 import { MatTableDataSource, MatDialog } from '@angular/material';
 import { DialogComponent } from './../../shared/dialog/dialog.component'
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -12,10 +13,14 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['userId', 'name', 'lastName', 'nit', 'birthDay', 'email', 'delete'];
+  displayedColumns: string[] = ['userId', 'name', 'lastName', 'nit', 'birthDay', 'email','edit', 'delete'];
   dataSource: MatTableDataSource<UserModel>;
   isLoading: boolean = true;
-  constructor(private usersService: UsersService, private dialog: MatDialog, private translate: TranslateService) {
+  constructor(
+    private usersService: UsersService, 
+    private dialog: MatDialog, 
+    private translate: TranslateService,
+    private router: Router) {
 
   }
 
@@ -38,10 +43,10 @@ export class ListComponent implements OnInit, OnDestroy {
         this.isLoading = false;
       });
   }
-
-  delete(element) {
-    this.isLoading = true;
-
+  edit(userId){
+    this.router.navigate(['/users/add', { id: userId}]);
+  }
+  delete(element) { 
     this.translate.get("users.confirmMessage").subscribe((message: string) => {
       let dialogRef = this.dialog.open(DialogComponent, {
         data: {
@@ -51,12 +56,14 @@ export class ListComponent implements OnInit, OnDestroy {
       })
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
-          this.usersService.delete(element.userId).subscribe((data: any) => {
+          this.isLoading = true;
+          this.usersService.delete(element.userId)
+          .subscribe((data: any) => {
             this.isLoading = false;
             this.load();
+          }, (error:any)=> {
+            this.isLoading = false;
           });
-        } else {
-          this.isLoading = false;
         }
       });
     });

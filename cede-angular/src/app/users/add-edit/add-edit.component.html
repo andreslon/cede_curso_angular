@@ -5,6 +5,9 @@
   <h1 class="toolbar-title">Add user</h1>
 </mat-toolbar>
 
+
+<mat-spinner *ngIf="isLoading" class="initial-spinner"></mat-spinner>
+
 <form class="form-container" autocomplete="off" #form="ngForm" (ngSubmit)="save(form)">
 
   <mat-form-field hintLabel="Max 100 characters">
@@ -46,5 +49,6 @@
 
   <div>
     <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-raised-button  (click)="clear()" type="button">Clear</button>
   </div>
 </form>
