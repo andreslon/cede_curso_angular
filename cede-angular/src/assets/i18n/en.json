@@ -1,0 +1,6 @@
+{
+    "common":{
+        "title": "Welcome to Cedesistemas course",
+        "welcome": "Welcome {{name}}!"
+    }
+}

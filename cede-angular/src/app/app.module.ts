@@ -11,10 +11,12 @@ import { RouterModule } from '@angular/router';
 import { UsersModule } from './users/users.module';
 
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 
-
+//ngx-translate configuration
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'; 
 
 @NgModule({
   declarations: [
@@ -40,7 +42,14 @@ import { SharedModule } from './shared/shared.module';
       }
     ]),
     UsersModule,
-    SharedModule
+    SharedModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -51,3 +60,6 @@ export class AppModule {
     
   }
  }
+export function HttpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http);
+}

@@ -1,11 +1,32 @@
 <mat-card>
     <h1>Pipes</h1>
-    <p> <b>lowercase:</b>{{textString | lowercase}}</p> 
-    <p> <b>uppercase:</b>{{textString | uppercase}}</p> 
-    <p> <b>json:</b>{{textString | json}}</p> 
+    <p> <b>lowercase:</b>{{textString | lowercase}}</p>
+    <p> <b>uppercase:</b>{{textString | uppercase}}</p>
+    <p> <b>json:</b>{{textString | json}}</p>
     <p> <b>percent:</b>{{textNumber | percent}}</p>
 
     <p> <b>custom pipe:</b>{{textString | welcome}}</p>
+</mat-card>
+
+<mat-card>
+    <h1>Translate</h1>
+    <p> <b>translate pipe: </b>{{'common.title' | translate}}</p>
+    <p> <b>translate directive attribute: </b><span [translate]="'common.title'"></span></p>
+    <p> <b>translate directive content: </b><span translate>common.title</span></p>
+
+    <br />
+    <p> <b>translate pipe with params: </b>{{'common.welcome' | translate:{'name':'ANDRES'} }}</p>
+    <p> <b>translate directive attribute with params: </b><span [translate]="'common.welcome'" [translateParams]="{'name':'ANDRES'}"></span></p>
+    <p> <b>translate directive content with params: </b><span translate [translateParams]="{'name':'ANDRES'}">common.welcome</span></p>
+
+
+    <div>
+        <button (click)="changeLanguage('es')">ES</button>
+        <button (click)="changeLanguage('en')">EN</button>
+    </div>
+    <div>
+        <button (click)="showTitle()">Show title</button>
+    </div>
 </mat-card>
 
 <mat-card>
