@@ -1,0 +1,14 @@
+<div class="container" id="">
+  <mat-card>
+    <h2>Padre</h2> 
+    <form autocomplete="off">
+      <mat-form-field>
+        <input matInput #inputPadre id="" placeholder="Texto padre">
+      </mat-form-field>
+    </form> 
+    <p>
+      <b>Texto hijo: </b> {{ HijoValue }}
+    </p> 
+    <app-hijo [PadreValue]="inputPadre.value" (HijoEvento)="HijoValue=$event"></app-hijo>
+  </mat-card>
+</div>

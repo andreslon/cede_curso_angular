@@ -1,0 +1,14 @@
+<div class="container" id="">
+  <mat-card>
+    <h2>Hijo</h2>
+    <form autocomplete="off">
+      <mat-form-field>
+        <input matInput #InputHijo placeholder="Texto hijo" (keyup)="onKeyUp(InputHijo.value)">
+      </mat-form-field>
+    </form> 
+    <p>
+      <b>Texto padre: </b> {{ PadreValue }}
+    </p>
+
+  </mat-card>
+</div>

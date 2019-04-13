@@ -16,13 +16,17 @@ import { SharedModule } from './shared/shared.module';
 
 //ngx-translate configuration
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader'; 
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PadreComponent } from './padre/padre.component';
+import { HijoComponent } from './hijo/hijo.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent 
+    HomeComponent,
+    PadreComponent,
+    HijoComponent 
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
       {
         path: 'home',
         component: HomeComponent
+      }
+      ,
+      {
+        path: 'padre',
+        component: PadreComponent
       }
     ]),
     UsersModule,
