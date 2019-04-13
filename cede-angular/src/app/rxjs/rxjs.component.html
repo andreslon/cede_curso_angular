@@ -1,0 +1,79 @@
+<div class="container">
+
+  <mat-card>
+    <h2>Observable/Stream:</h2>
+    {{observableText}}
+    <span *ngFor="let msg of observableArray">
+      {{msg}}
+    </span>
+  </mat-card>
+
+  <mat-card>
+    <h2>Observable/Eventos DOM:</h2>
+    <div>
+      <button mat-button (click)="callObservableClick()">Start</button>
+    </div>
+    <span *ngFor="let msg of observableClickArray">
+      {{msg}}
+    </span>
+  </mat-card>
+
+
+  <mat-card>
+    <h2>Observable/Promise</h2>
+    <div>
+      <button mat-button (click)="callObservablePromise()">Start</button>
+    </div>
+    {{observablePromiseString}}
+  </mat-card>
+
+
+  <mat-card>
+    <h2>Observable/Timer</h2>
+    <div>
+      <button mat-button (click)="callObservableTimer()">Start</button>
+    </div>
+    <span *ngFor="let msg of observableTimerArray">
+      {{msg}}
+    </span>
+  </mat-card>
+
+  <mat-card>
+    <h2>Observable/Interval</h2>
+    <div>
+      <button mat-button (click)="callObservableInterval()">Start</button>
+    </div>
+    <div>
+      {{observableIntervalstring}}
+    </div>
+    <span *ngFor="let msg of observableIntervalArray">
+      {{msg}}
+    </span>
+  </mat-card>
+
+  <mat-card>
+    <h2>Observable/Static</h2>
+    <span *ngFor="let msg of observableStaticArray">
+      {{msg}}
+    </span>
+  </mat-card>
+
+  <mat-card>
+    <h2>Observable/Map</h2>
+    <div>
+      <button mat-button (click)="callObservableMap()">Start</button>
+    </div>
+    <span *ngFor="let msg of observableMapArray">
+      {{msg}}
+    </span>
+  </mat-card>
+
+  <mat-card>
+      <h2>Observable/filter</h2>
+      <div>
+        <button mat-button (click)="callObservableFilter()">Start</button>
+      </div>
+      {{observableString}} 
+    </mat-card>
+
+</div>
