@@ -1,0 +1,22 @@
+<h2>NGRX Add</h2>
+
+
+<form class="form-container" autocomplete="off" #form="ngForm" (ngSubmit)="add(form)">
+
+    <mat-form-field hintLabel="Max 100 characters">
+      <input matInput #input1 placeholder="Nombre" [formControl]="nombre" required>
+      <mat-hint align="end">{{input1.value?.length || 0}}/100</mat-hint>
+      <mat-error *ngIf="nombre.invalid">{{this.nombre.hasError('required') ? 'You must enter a value' : ''}}</mat-error>
+    </mat-form-field>
+  <br />
+    <mat-form-field hintLabel="Max 100 characters">
+      <input matInput #input2 placeholder="Edad" [formControl]="edad" required>
+      <mat-hint align="end">{{input2.value?.length || 0}}/100</mat-hint>
+      <mat-error *ngIf="edad.invalid">{{this.edad.hasError('required') ? 'You must enter a value' : ''}}
+      </mat-error>
+    </mat-form-field>
+    
+    <div>
+      <button mat-raised-button color="primary" type="submit">Add</button> 
+    </div>
+  </form>

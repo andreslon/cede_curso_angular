@@ -20,7 +20,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PadreComponent } from './padre/padre.component';
 import { HijoComponent } from './hijo/hijo.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { NgrxComponent } from './ngrx/ngrx.component';
+import { NgrxListComponent } from './ngrx-list/ngrx-list.component';
 
+import { StoreModule } from '@ngrx/store';
+import { ngrxReducer } from './ngrx.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,13 +32,16 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     HomeComponent,
     PadreComponent,
     HijoComponent,
-    RxjsComponent
+    RxjsComponent,
+    NgrxComponent,
+    NgrxListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot({ ngrx: ngrxReducer }),
     //AppRoutingModule, 
     MaterialModule,
     RouterModule.forRoot([
